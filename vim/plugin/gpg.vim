@@ -15,7 +15,7 @@ augroup gpgencrypted
   " and run any BufReadPost autocmds matching the file name without the .gpg
   " extension.  Redraw clears the GPG crap.
   autocmd BufReadPost,FileReadPost *.gpg
-    \ execute "%!gpg --quiet --decrypt --output -" |
+    \ execute "%!gpg --quiet --decrypt --no-use-agent --output -" |
     \ setlocal nobin |
     \ redraw! |
     \ execute "doautocmd BufReadPost " . expand("%:r")
