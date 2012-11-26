@@ -13,10 +13,11 @@ augroup gpgencrypted
 
   " Decrypt the contents after reading the file, reset binary file format
   " and run any BufReadPost autocmds matching the file name without the .gpg
-  " extension
+  " extension.  Redraw clears the GPG crap.
   autocmd BufReadPost,FileReadPost *.gpg
     \ execute "%!gpg --quiet --decrypt --output -" |
     \ setlocal nobin |
+    \ redraw! |
     \ execute "doautocmd BufReadPost " . expand("%:r")
 
   " Run any BufReadPost autocmds matching the file name without the .gpg
@@ -27,7 +28,8 @@ augroup gpgencrypted
   " Set binary file format and encrypt the contents before writing the file
   autocmd BufWritePre,FileWritePre *.gpg
     \ setlocal bin |
-    \ %!gpg --quiet --symmetric --cipher-algo aes256
+    \ %!gpg --quiet --encrypt --default-recipient-self
+"    \ %!gpg --quiet --symmetric --cipher-algo aes256
 
   " After writing the file, do an :undo to revert the encryption in the
   " buffer, and reset binary file format
