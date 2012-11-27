@@ -28,8 +28,7 @@ augroup gpgencrypted
   " Set binary file format and encrypt the contents before writing the file
   autocmd BufWritePre,FileWritePre *.gpg
     \ setlocal bin |
-    \ %!gpg --quiet --encrypt --default-recipient-self
-"    \ %!gpg --quiet --symmetric --cipher-algo aes256
+    \ %!gpg --quiet --encrypt --default-recipient BB8B96FA
 
   " After writing the file, do an :undo to revert the encryption in the
   " buffer, and reset binary file format
