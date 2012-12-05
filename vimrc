@@ -11,18 +11,16 @@ set noshowmatch 		" disable bracket cursor jumping (redundant now that vim highl
 set vb t_vb=
 set ruler
 set visualbell
-set guioptions-=T
-set guioptions-=m
 set nohls 				" disable search highlighting
 set incsearch
 set shm=filnxtToOI
 set showbreak=>>\ 
-set background=light
 set foldmethod=marker	" folding lines contained within {{{,}}}
 set scrolloff=3			" space from cursor to top/bottom edge
 set sidescrolloff=3		" space from cursor to left/right edge
 set textwidth=82
 set noexpandtab
+set cursorline
 
 syntax on
 highlight BadWhitespace ctermbg=lightgrey guibg=lightgrey
@@ -45,3 +43,4 @@ autocmd FileType sh set formatoptions=qcl comments=:#
 " unfuck indenting of # in languages that used that as a comment leader
 autocmd FileType python,sh inoremap # X#
 
+source ~/.vimrc.local
