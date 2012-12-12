@@ -1,8 +1,6 @@
 set nocompatible
 set nowrap
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=4 shiftwidth=4 softtabstop=4
 set autoindent
 set autowrite
 set smartindent
@@ -35,10 +33,10 @@ autocmd FileType python match BadWhitespace /^\t\+/ " no leading tabs
 
 autocmd FileType h,c,hpp,cpp,python,asm,s match BadWhitespace /\s\+$/ " no trailing whitespace
 autocmd FileType h,c,hpp,cpp set formatoptions=croql cindent comments=sr:/*,mb:*,ex:*/,://
-autocmd FileType s,asm set ts=8 sts=8 sw=8
-autocmd FileType tex set ts=2 sw=2 sts=2 et spell
-autocmd FileType plaintext set spell
 autocmd FileType sh set formatoptions=qcl comments=:#
+autocmd FileType s,asm set ts=8 sts=8 sw=8
+autocmd FileType tex set ts=2 sw=2 sts=2 spell
+autocmd FileType plaintext set spell
 
 " unfuck indenting of # in languages that used that as a comment leader
 autocmd FileType python,sh,make inoremap # X#
