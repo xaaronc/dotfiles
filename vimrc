@@ -41,6 +41,9 @@ autocmd FileType plaintext set spell
 autocmd FileType sh set formatoptions=qcl comments=:#
 
 " unfuck indenting of # in languages that used that as a comment leader
-autocmd FileType python,sh inoremap # X#
+autocmd FileType python,sh,make inoremap # X#
 
-source ~/.vimrc.local
+if filereadable(expand("~/.vimrc.local"))
+	source ~/.vimrc.local
+endif
+
